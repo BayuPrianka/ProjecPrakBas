@@ -53,3 +53,13 @@ body{
     align-items: center;
     padding: 10px;
 }
+
+.li-foot{
+
+    font-size: 20px;
+    list-style: none;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
