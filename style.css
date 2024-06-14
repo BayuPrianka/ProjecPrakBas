@@ -4,31 +4,52 @@ html{
     padding: 0;
 }
 
-
-body {
-    background-color:pink;
-}
-
-.navbar{
-    background-color: white;
-}
-
-.footer{
+body{
     background-color: antiquewhite;
 }
 
-.ul-navbar{
-    background-color: aqua;
+.Navigator{
+    display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;
 }
 
-.li-navbar{
-    border: 3px solid red;
-    background-color: black;
-    list-style-type: none;
-    padding: 20px;
-    margin: 5px;
-    color: red;
+.a-navbar{
+    color: black;
+    text-decoration: none;
+}
+
+.ul-navi{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vh;
+    height: 100px;
+}
+
+.li-navi{
+    font-size: 20px;
+    list-style: none;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.li-navi:hover{
+    background-color: white;
+}
+
+.Content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
