@@ -50,6 +50,12 @@ body{
     border-radius: 80px;
 }
 
+.profilgambar{
+    border-radius: 10px; /* Membuat sudut gambar sedikit bulat */
+    border-radius: 50%;  /* Membuat gambar menjadi lingkaran */
+
+}
+
 .a-content{
     margin-top: 50px;
     display: flex;
