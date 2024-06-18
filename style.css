@@ -8,6 +8,18 @@ body{
     background-color: E5E5E5;
 }
 
+.logoplus{
+    padding: 3px;
+    border-radius: 10px; /* Membuat sudut gambar sedikit bulat */
+    border-radius: 50%;  /* Membuat gambar menjadi lingkaran */
+    
+}
+.logoplus:hover{
+    background-color: c5c5c5;
+    border-radius: 10px; /* Membuat sudut gambar sedikit bulat */
+    border-radius: 50%;  /* Membuat gambar menjadi lingkaran */
+    
+}
 .Navigator{
     display: flex;
     justify-content: center;

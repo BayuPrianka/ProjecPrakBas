@@ -7,15 +7,18 @@
     <body>
         <div class="div-body">
             <!-- Navigator Bar -->
-            <nav class="navbar bg-body-tertiary fixed-top" data-bs-theme="dark">
+            <nav class="navbar bg-body-tertiary fixed-top" data-bs-theme="light">
               
               <div class="container-fluid">
-                <img src="a.jpg" class="profilgambar" style="margin-left: auto;" height="38" width="44" />
+                
                 <a class="navbar-brand" href="#"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                
+                <button class="navbar-toggler" type="button" style="margin-right:auto ;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <img src="plus.png" class="logoplus" style="margin-right: 20px;"  height="38" width="44" />
+                <img src="profil.png" class="profilgambar" style="margin-right: 10px;"  height="38" width="44" />
+                <div class="offcanvas offcanvas-start"  tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                   <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasNavbarLabel">HitoManager</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -36,10 +39,7 @@
                         </ul>
                       </li>
                     </ul>
-                    <form class="d-flex mt-3" role="search">
-                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                      <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+
                   </div>
                 </div>
               </div>
