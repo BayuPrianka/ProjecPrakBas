@@ -200,6 +200,9 @@ body{
 
 /* Close button */
 .close {
+   
+    width: 5%;
+    height: 3%;
     color: #aaa;
     float: right;
     font-size: 28px;

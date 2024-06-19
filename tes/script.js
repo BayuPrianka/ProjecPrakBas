@@ -1,10 +1,11 @@
-document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", () => {
     const subMenuWrap = document.getElementById("subMenuWrap");
     const profilGambar = document.querySelector(".profilgambar");
 
     function toggleMenu() {
       subMenuWrap.classList.toggle("open-menu");
     }
+
 
     profilGambar.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -16,8 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
         subMenuWrap.classList.remove("open-menu");
       }
     });
-  });
-  document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("myModal");
     const btn = document.getElementById("openModalBtn");
     const span = document.getElementsByClassName("close")[0];
