@@ -120,7 +120,9 @@ body{
 .Sub-Menu-Wrap.open-menu{
     max-height: 400px;
 }
-
+.Sub-Menu-Wrap.close-menu{
+    max-height: 0px;
+}
 .Sub-Menu{
     border-radius: 20px;
     box-shadow: 10px 10px 13px -8px rgba(0,0,0,0.75);
