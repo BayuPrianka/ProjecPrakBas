@@ -19,17 +19,14 @@
     });
     const modal = document.getElementById("myModal");
     const btn = document.getElementById("openModalBtn");
-    const span = document.getElementsByClassName("close")[0];
 
-  // Open the modal
+
+            // Open the modal
   btn.onclick = () => {
     modal.style.display = "block";
 }
 
-// Close the modal
-span.onclick = () => {
-    modal.style.display = "none";
-}
+
 
 // Close the modal when clicking outside of the modal content
 window.onclick = (event) => {
@@ -37,6 +34,9 @@ window.onclick = (event) => {
         modal.style.display = "none";
     }
 }
+
+
+});
 // sidebar
 const body = document.querySelector("body");
       sidebar = body.querySelector(".sidebar");
@@ -45,4 +45,3 @@ const body = document.querySelector("body");
       toggle.addEventListener("click",()=>{
         sidebar.classList.toggle("close");
       });
-});
