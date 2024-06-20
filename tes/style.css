@@ -16,7 +16,7 @@ body{
 }
 .logoplus:hover{
     background-color: #c5c5c5;
-   
+    cursor: pointer;
     border-radius: 50%;  
     
 }
@@ -66,7 +66,12 @@ body{
     border-radius: 50%; 
 
 }
-
+.profilgambar:hover{
+    cursor: pointer;
+}
+.logoplus{
+    margin-left: 85%;
+}
 .a-content{
     margin-top: 50px;
     display: flex;
@@ -230,4 +235,63 @@ body{
 .buatButton:hover{
     background-color: a5a5a5;
     background-color: a5a5a5;
+}
+.container-fluid{
+}
+.menu-utama {
+    border-radius: 50%;
+    margin-left: 10px;
+}
+.menu-utama:hover{
+    background-color: c5c5c5;
+    cursor: pointer;
+}
+/* SIde Bar */
+.sidebar{
+    position: fixed;
+    top: 8%;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #F8F9FA;
+    transition: 0.5s;
+}
+.sidebar.close{
+    width: 60px;
+}
+.sidebar.close .text-nav-text{
+    opacity: 0;
+}
+.sidebar.close .nav-link{
+    width: 50px;
+}
+.nav-link{
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 200px;
+   border-radius: 10px;
+}
+.nav-link:hover{
+    background-color: #F1F1F1;
+}
+.nav-link-a{
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+
+}
+.text-nav-text{
+    margin-left: 15px;
+
+}
+.menu-link{
+    margin-left: 10px;
+}
+.sidebar .nav-link-setting{
+
 }
