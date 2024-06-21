@@ -15,7 +15,7 @@ body{
     
 }
 .logoplus:hover{
-    background-color: #c5c5c5;
+    background-color: #E5E5E5;
     cursor: pointer;
     border-radius: 50%;  
     
@@ -25,33 +25,16 @@ body{
     justify-content: center;
     align-items: center;
 }
-
+.navbar{
+    background-color: #F8F9FA;
+    border-bottom: 1px solid #888;
+}
 .a-navbar{
     color: #aaa;
     text-decoration: none;
 }
 
-.ul-navi{
-   
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vh;
-    height: 100px;
-}
 
-.li-navi{
-    font-size: 20px;
-    list-style: none;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.li-navi:hover{
-    background-color: #aaa;
-}
 
 .Content{
     display: flex;
@@ -68,6 +51,14 @@ body{
 }
 .profilgambar:hover{
     cursor: pointer;
+}
+.profilgambarmenu{
+    border-radius: 50%; 
+
+}
+.profilgambarmenu:hover{
+    cursor: pointer;
+    background-color: #E5E5E5;
 }
 .logoplus{
     margin-left: 85%;
@@ -104,14 +95,7 @@ body{
     align-items: center;
 }
 
-#biodata{
-    background-color: #aaa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 361px;
-    height: 50px;
-}
+
 
 .Sub-Menu-Wrap{
     position: absolute;
@@ -159,7 +143,6 @@ body{
     width: 100%;
 }
 .sub-menu-link img{
-    background-color: #e5e5e5;
     border-radius: 50%;
     
 }
@@ -234,7 +217,6 @@ body{
 }
 .buatButton:hover{
     background-color: a5a5a5;
-    background-color: a5a5a5;
 }
 .container-fluid{
 }
@@ -243,21 +225,23 @@ body{
     margin-left: 10px;
 }
 .menu-utama:hover{
-    background-color: c5c5c5;
+    background-color: E5E5E5;
     cursor: pointer;
 }
 /* SIde Bar */
 .sidebar{
     position: fixed;
-    top: 8%;
+    top: 10%;
     left: 0;
     height: 100%;
     width: 250px;
     background-color: #F8F9FA;
+    border-right: 1px solid #888;
+    border-top: 1px solid #888;
     transition: 0.1s;
 }
 .sidebar.close{
-    width: 60px;
+    width: 70px;
 }
 .sidebar.close .text-nav-text{
     opacity: 0;
@@ -279,11 +263,17 @@ body{
 }
 .nav-link-a{
     font-size: 15px;
+    margin-left: 5px;
     text-decoration: none;
     color: black;
     display: flex;
     align-items: center;
 
+}
+.nav-link-a img{
+
+    width: 28;
+    height: 30;
 }
 .text-nav-text{
     margin-left: 15px;
