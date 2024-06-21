@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const subMenuWrap = document.getElementById("subMenuWrap");
-  const profilGambar = document.querySelector(".profilgambar");
+  const profilGambar = document.querySelector(".profilgambarmenu");
 
   function toggleMenu() {
     subMenuWrap.classList.toggle("open-menu");
