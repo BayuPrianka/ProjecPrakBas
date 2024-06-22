@@ -39,9 +39,65 @@ window.onclick = (event) => {
 });
 // sidebar
 const body = document.querySelector("body");
-    sidebar = body.querySelector(".sidebar");
-    toggle = body.querySelector(".menu-utama");
+const sidebar = body.querySelector(".sidebar");
+const contenIfSidebarOpen = body.querySelector(".content");
+const toggle = body.querySelector(".menu-utama");
 
-    toggle.addEventListener("click",()=>{
-      sidebar.classList.toggle("close");
-    });
+// Variabel untuk melacak apakah tombol menu utama telah ditekan
+let menuUtamaToggled = false;
+
+toggle.addEventListener("click", () => {
+  // Toggle kelas 'close' pada sidebar
+  sidebar.classList.toggle("close");
+  contenIfSidebarOpen.classList.toggle("ori");
+  // Update status menu utama
+  menuUtamaToggled = !menuUtamaToggled;
+
+  // Aktifkan atau nonaktifkan event listener berdasarkan status menu utama
+  if (menuUtamaToggled) {
+      // Nonaktifkan event listener
+      sidebarauto.removeEventListener('mouseover', openSidebar);
+      sidebarauto.removeEventListener('mouseout', closeSidebar);
+  } else {
+      // Aktifkan kembali event listener
+      sidebarauto.addEventListener('mouseover', openSidebar);
+      sidebarauto.addEventListener('mouseout', closeSidebar);
+  }
+});
+
+// Mendapatkan elemen sidebar
+let sidebarauto = document.getElementById('mySidebar');
+let contenauto = document.getElementById('content');
+// Fungsi untuk membuka sidebar
+function openSidebar() {
+  sidebarauto.classList.remove('close');
+  contenauto.classList.remove('ori');
+}
+
+// Fungsi untuk menutup sidebar
+function closeSidebar() {
+  contenauto.classList.add('ori');
+  sidebarauto.classList.add('close');
+}
+
+// Menambahkan event listener untuk mouseover
+sidebarauto.addEventListener('mouseover', openSidebar);
+
+// Menambahkan event listener untuk mouseout
+sidebarauto.addEventListener('mouseout', closeSidebar);
+
+
+// tes
+
+const btn1 = document.getElementById('buatButtonId')
+function clickBuatButton(){
+const modal = document.getElementById("myModal");
+var content = document.getElementById("content")
+var card = document.createElement('div')
+var isicard = document.createElement('div')
+card.classList.add('isi-content')
+isicard.classList.add('isi-content1')
+card.append(isicard)
+content.append(card)
+modal.style.display = "none";
+}

@@ -6,6 +6,9 @@ html{
 
 body{
     background-color: #E5E5E5;
+    width: 100vh;
+    height: 100vh;
+    display: flex;
 }
 
 .logoplus{
@@ -26,6 +29,9 @@ body{
     align-items: center;
 }
 .navbar{
+
+    position: fixed;
+    width: 100%;
     background-color: #F8F9FA;
     border-bottom: 1px solid #888;
 }
@@ -34,16 +40,6 @@ body{
     text-decoration: none;
 }
 
-
-
-.Content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    padding: 10px;
-    border-radius: 80px;
-}
 
 .profilgambar{
     border-radius: 50%; 
@@ -62,37 +58,6 @@ body{
 }
 .logoplus{
     margin-left: 85%;
-}
-.a-content{
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 361px;
-    height: 401px;
-}
-
-.img-content{
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-}
-
-.Footer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
-
-.li-foot{
-
-    font-size: 20px;
-    list-style: none;
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 
@@ -284,4 +249,48 @@ body{
 }
 .sidebar .nav-link-setting{
 
+}
+
+
+/* Conten */
+body .content.ori {
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 169vh;
+    height: 608px;
+    margin-left: 70px;
+    margin-top: 70px;
+    justify-content: flex-start; /* Tambahkan ini untuk memastikan elemen mulai dari kiri */
+}
+
+.content {
+
+    display: flex;
+    flex-wrap: wrap;
+    width: 142vh;
+    margin-left: 250px;
+    margin-top: 70px;
+    justify-content: flex-start; /* Tambahkan ini untuk memastikan elemen mulai dari kiri */
+}
+
+
+
+.isi-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px; /* Jarak antar elemen */
+    width: 250px; /* Lebar tetap */
+    height: 300px; /* Tinggi tetap */
+    box-sizing: border-box; /* Memasukkan padding dan border dalam ukuran total */
+}
+
+.isi-content1 {
+    border-radius: 10px;
+    width: 100%; /* Sesuaikan dengan lebar elemen parent .isi-content */
+    height: 300px;
+    background-color: white;
+    border: 1px solid black;
+    box-sizing: border-box; /* Pastikan padding dan border dimasukkan dalam ukuran total */
 }
