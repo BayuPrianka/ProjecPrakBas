@@ -196,7 +196,7 @@ body{
 /* SIde Bar */
 .sidebar{
     position: fixed;
-    top: 10%;
+
     left: 0;
     height: 100%;
     width: 250px;
@@ -245,11 +245,13 @@ body{
 
 }
 .menu-link{
+    margin-top: 80px;
     margin-left: 10px;
 }
-.sidebar .nav-link-setting{
-
+.menubar{
+    margin-top: 100%;
 }
+
 
 
 /* Conten */
