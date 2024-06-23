@@ -295,4 +295,6 @@ body .content.ori {
     background-color: white;
     border: 1px solid black;
     box-sizing: border-box; /* Pastikan padding dan border dimasukkan dalam ukuran total */
+    display: flex;
+    justify-content: center;
 }

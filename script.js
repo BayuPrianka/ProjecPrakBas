@@ -89,15 +89,113 @@ sidebarauto.addEventListener('mouseout', closeSidebar);
 
 // tes
 
-const btn1 = document.getElementById('buatButtonId')
-function clickBuatButton(){
-const modal = document.getElementById("myModal");
-var content = document.getElementById("content")
-var card = document.createElement('div')
-var isicard = document.createElement('div')
-card.classList.add('isi-content')
-isicard.classList.add('isi-content1')
-card.append(isicard)
-content.append(card)
-modal.style.display = "none";
+
+
+
+//tambah departement
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { 
+    getFirestore,
+    doc, 
+    getDoc,
+    getDocs,
+    setDoc,
+    collection,
+    addDoc,
+    updateDoc,
+    deleteDoc,
+    deleteField
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+
+
+
+
+
+
+// TODO: Replace the following with your app's Firebase project configuration
+// See: https://support.google.com/firebase/answer/7015592
+const firebaseConfig = {
+    apiKey: "AIzaSyD_C-rScD4crkOa4vZAxwQ4vsx5FVzZvhw",
+    authDomain: "latihan-1a8e0.firebaseapp.com",
+    databaseURL: "https://latihan-1a8e0-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "latihan-1a8e0",
+    storageBucket: "latihan-1a8e0.appspot.com",
+    messagingSenderId: "348463004295",
+    appId: "1:348463004295:web:a43306dba9efaccc735622",
+    measurementId: "G-W6NNH910C1"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
+
+
+
+function BuatDepartement(namaDpr){
+    var content = document.getElementById("content")
+    var card = document.createElement('div')
+    var isiCard = document.createElement('div')
+    var NamaDepartementIsiCard = document.createElement('h2')
+    NamaDepartementIsiCard.id = 'NamaDepartement';
+    NamaDepartementIsiCard.innerHTML = namaDpr;
+    NamaDepartementIsiCard.setAttribute('type', 'text');
+    
+    card.classList.add('isi-content')
+    isiCard.classList.add('isi-content1')
+    isiCard.append(NamaDepartementIsiCard)
+    card.append(isiCard)
+    content.append(card)
+    
 }
+
+
+
+    
+// references
+let NameBox = document.getElementById("floatingInput");
+let NamaDepartement = document.getElementById("NamaDepartement");
+let RollBox = document.getElementById("Rollbox");
+
+
+let insBtn = document.getElementById("buatButtonId");
+
+//nulis 
+const btn1 = document.getElementById('buatButtonId')
+async function AddDocument_CustomID(){
+    var ref = doc(db,"HitoManager",RollBox.value);
+    // BuatDepartement();
+    const docRef = await setDoc(
+        ref,{
+            NameOfStd: NameBox.value,
+            RollNO: RollBox.value,
+        }
+    )
+    .then(()=>{
+        BuatDepartement(NameBox.value);
+        alert("sukses");
+    })
+    .catch((error)=>{
+        alert("gak sukses, error:"+ error);
+    })
+    const modal = document.getElementById("myModal");
+    modal.style.display = "none";
+}
+
+
+
+
+insBtn.addEventListener("click",AddDocument_CustomID);
+
+
+
+
+const querySnapshot = await getDocs(collection(db, "HitoManager"));
+    querySnapshot.forEach(
+        (doc) => {
+        console.log(`apa ini woi ${doc.id} => ${JSON.stringify(doc.data())}`);
+        let namaDpr = doc.data().NameOfStd;
+        BuatDepartement(namaDpr)
+    });
