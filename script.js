@@ -3,41 +3,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const profilGambar = document.querySelector(".profilgambarmenu");
 
   function toggleMenu() {
-    subMenuWrap.classList.toggle("open-menu");
+      subMenuWrap.classList.toggle("open-menu");
   }
 
-
   profilGambar.addEventListener("click", (e) => {
-    e.stopPropagation();
-    toggleMenu();
+      e.stopPropagation();
+      toggleMenu();
   });
 
   document.addEventListener("click", (e) => {
-    if (!subMenuWrap.contains(e.target) && subMenuWrap.classList.contains("open-menu")) {
-      subMenuWrap.classList.remove("open-menu");
-    }
+      if (!subMenuWrap.contains(e.target) && subMenuWrap.classList.contains("open-menu")) {
+          subMenuWrap.classList.remove("open-menu");
+      }
   });
+
   const modal = document.getElementById("myModal");
   const btn = document.getElementById("openModalBtn");
 
-
-          // Open the modal
-btn.onclick = () => {
-  modal.style.display = "block";
-}
-
-
-
-// Close the modal when clicking outside of the modal content
-window.onclick = (event) => {
-  if (event.target == modal) {
-      modal.style.display = "none";
+  // Open the modal
+  btn.onclick = () => {
+      modal.style.display = "block";
   }
-}
 
-
+  // Close the modal when clicking outside of the modal content
+  window.onclick = (event) => {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
 });
-// sidebar
+
+// Sidebar
 const body = document.querySelector("body");
 const sidebar = body.querySelector(".sidebar");
 const contenIfSidebarOpen = body.querySelector(".content");
@@ -86,45 +82,27 @@ sidebarauto.addEventListener('mouseover', openSidebar);
 // Menambahkan event listener untuk mouseout
 sidebarauto.addEventListener('mouseout', closeSidebar);
 
-
-// tes
-
-
-
-
-//tambah departement
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { 
-    getFirestore,
-    doc, 
-    getDoc,
-    getDocs,
-    setDoc,
-    collection,
-    addDoc,
-    updateDoc,
-    deleteDoc,
-    deleteField
+  getFirestore,
+  doc, 
+  getDoc,
+  getDocs,
+  setDoc,
+  collection,
+  updateDoc,
+  deleteDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-
-
-
-
-
-
-
-// TODO: Replace the following with your app's Firebase project configuration
-// See: https://support.google.com/firebase/answer/7015592
 const firebaseConfig = {
-    apiKey: "AIzaSyD_C-rScD4crkOa4vZAxwQ4vsx5FVzZvhw",
-    authDomain: "latihan-1a8e0.firebaseapp.com",
-    databaseURL: "https://latihan-1a8e0-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "latihan-1a8e0",
-    storageBucket: "latihan-1a8e0.appspot.com",
-    messagingSenderId: "348463004295",
-    appId: "1:348463004295:web:a43306dba9efaccc735622",
-    measurementId: "G-W6NNH910C1"
+  apiKey: "AIzaSyD_C-rScD4crkOa4vZAxwQ4vsx5FVzZvhw",
+  authDomain: "latihan-1a8e0.firebaseapp.com",
+  databaseURL: "https://latihan-1a8e0-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "latihan-1a8e0",
+  storageBucket: "latihan-1a8e0.appspot.com",
+  messagingSenderId: "348463004295",
+  appId: "1:348463004295:web:a43306dba9efaccc735622",
+  measurementId: "G-W6NNH910C1"
 };
 
 // Initialize Firebase
@@ -132,37 +110,70 @@ const app = initializeApp(firebaseConfig);
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
 
+// Get the modal for editing
+var ModalEdit = document.getElementById("myModal1");
 
+// Get the <span> element that closes the modal
+var spanEdit = document.getElementsByClassName("close")[1]; // Mengambil elemen close button untuk modal edit
 
-function BuatDepartement(namaDpr){
-    var content = document.getElementById("content")
-    var card = document.createElement('div')
-    var isiCard = document.createElement('div')
-    var NamaDepartementIsiCard = document.createElement('h2')
-    NamaDepartementIsiCard.id = 'NamaDepartement';
-    NamaDepartementIsiCard.innerHTML = namaDpr;
-    NamaDepartementIsiCard.setAttribute('type', 'text');
-    
-    card.classList.add('isi-content')
-    isiCard.classList.add('isi-content1')
-    isiCard.append(NamaDepartementIsiCard)
-    card.append(isiCard)
-    content.append(card)
-    
+// When the user clicks on <span> (x), close the modal
+spanEdit.onclick = function() {
+    ModalEdit.style.display = "none";
 }
 
 
 
-    
+function BuatDepartement(namaDpr, docId){
+  var content = document.getElementById("content");
+  var card = document.createElement('div');
+  var isiCard = document.createElement('div');
+  var NamaDepartementIsiCard = document.createElement('h3');
+
+  var isiCardAtas = document.createElement('div');
+  isiCardAtas.classList.add('isi-content1-atas');
+  var isiCardTengah = document.createElement('div');
+  isiCardTengah.classList.add('isi-content1-tngh');
+  var isiCardBawah = document.createElement('div');
+  isiCardBawah.classList.add('isi-content1-bwh');
+
+  var isiCardDel = document.createElement('button');
+  isiCardDel.classList.add('deleteDprBtn');
+  isiCardDel.innerText = 'Delete';
+  isiCardDel.dataset.docId = docId;
+  isiCardDel.addEventListener('click', function() {
+      DeleteDocument(docId, card);
+  });
+
+  var isiCardEdit = document.createElement('button');
+  isiCardEdit.classList.add('editDprBtn');
+  isiCardEdit.innerText = 'Edit';
+  isiCardEdit.dataset.docId = docId;
+  isiCardEdit.addEventListener('click', function() {
+      document.getElementById('editField').value = namaDpr;
+      document.getElementById('editDocId').value = docId;
+      ModalEdit.style.display = "block";
+  });
+
+  isiCardAtas.append(NamaDepartementIsiCard);
+  isiCardBawah.append(isiCardDel);
+  isiCardBawah.append(isiCardEdit);
+  isiCard.append(isiCardAtas, isiCardTengah, isiCardBawah);
+
+  NamaDepartementIsiCard.innerText = namaDpr;
+
+  card.classList.add('isi-content');
+  isiCard.classList.add('isi-content1');
+
+  card.append(isiCard);
+  content.append(card);
+}
+
 // references
 let NameBox = document.getElementById("floatingInput");
-let NamaDepartement = document.getElementById("NamaDepartement");
 let RollBox = document.getElementById("Rollbox");
-
-
 let insBtn = document.getElementById("buatButtonId");
 
-//nulis 
+// Add document with custom ID
 const btn1 = document.getElementById('buatButtonId')
 async function AddDocument_CustomID(){
     var ref = doc(db,"HitoManager",RollBox.value);
@@ -185,17 +196,54 @@ async function AddDocument_CustomID(){
 }
 
 
+// Update fields in a document
+async function UpdateFieldsInADocument(docId, newValue) {
+  var ref = doc(db, "HitoManager", docId);
+  await updateDoc(ref, {
+      NameOfStd: newValue,
+  })
+  .then(() => {
+      alert("Success");
+      var cardElement = document.querySelector(`[data-doc-id="${docId}"]`).closest('.isi-content');
+      cardElement.querySelector('h3').innerText = newValue;
+      ModalEdit.style.display = "none"; // Close the modal
+  })
+  .catch((error) => {
+      alert("Failed, error: " + error);
+  });
+}
 
+// Delete a document
+async function DeleteDocument(docId, cardElement) {
+  var ref = doc(db, "HitoManager", docId);
+  const docSnap = await getDoc(ref);
 
-insBtn.addEventListener("click",AddDocument_CustomID);
+  if (!docSnap.exists()) {
+      alert("Document does not exist");
+      return;
+  }
+  await deleteDoc(ref)
+  .then(() => {
+      alert("Success");
+      cardElement.remove(); // Remove the card element from DOM
+  })
+  .catch((error) => {
+      alert("Failed, error: " + error);
+  });
+}
 
-
-
+insBtn.addEventListener("click", AddDocument_CustomID);
 
 const querySnapshot = await getDocs(collection(db, "HitoManager"));
-    querySnapshot.forEach(
-        (doc) => {
-        console.log(`apa ini woi ${doc.id} => ${JSON.stringify(doc.data())}`);
-        let namaDpr = doc.data().NameOfStd;
-        BuatDepartement(namaDpr)
-    });
+querySnapshot.forEach((doc) => {
+  let namaDpr = doc.data().NameOfStd;
+  BuatDepartement(namaDpr, doc.id);
+});
+
+// Handle edit modal form submission
+document.getElementById("editForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const docId = document.getElementById("editDocId").value;
+  const newValue = document.getElementById("editField").value;
+  UpdateFieldsInADocument(docId, newValue);
+});

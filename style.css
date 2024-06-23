@@ -151,11 +151,32 @@ body{
     border-radius: 5px;
 }
 
-/* Close button */
+
+.modal1 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content1 {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+}
+
 .close {
-   
-    width: 5%;
-    height: 3%;
     color: #aaa;
     float: right;
     font-size: 28px;
@@ -290,11 +311,81 @@ body .content.ori {
 
 .isi-content1 {
     border-radius: 10px;
-    width: 100%; /* Sesuaikan dengan lebar elemen parent .isi-content */
+    width: 250; /* Sesuaikan dengan lebar elemen parent .isi-content */
     height: 300px;
-    background-color: white;
+    background-color:whitesmoke;
     border: 1px solid black;
+    box-sizing: border-box; /* Pastikan padding dan border dimasukkan dalam ukuran total */
+
+    justify-content: center;
+}
+.isi-content1-atas {
+ 
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    width: 250px; /* Sesuaikan dengan lebar elemen parent .isi-content */
+    height: 100px;
+    
+ 
+
+    box-sizing: border-box; /* Pastikan padding dan border dimasukkan dalam ukuran total */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.isi-content1-tngh {
+  
+    width: 250px; /* Sesuaikan dengan lebar elemen parent .isi-content */
+    height: 149px;
+    
+
+   
     box-sizing: border-box; /* Pastikan padding dan border dimasukkan dalam ukuran total */
     display: flex;
     justify-content: center;
+}
+.isi-content1-bwh {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 250px; /* Sesuaikan dengan lebar elemen parent .isi-content */
+    height: 49px;
+    
+
+    box-sizing: border-box; /* Pastikan padding dan border dimasukkan dalam ukuran total */
+
+}
+.deleteDprBtn{
+    background-color: white;
+    margin-top: 10px;
+    margin-right: 10px;
+    float: right;
+    width: 70px;
+    height: 30px;
+}
+.deleteDprBtn:hover{
+    background-color: black;
+    color: white;
+    margin-top: 10px;
+    margin-right: 10px;
+    float: right;
+    width: 70px;
+    height: 30px;
+}
+.editDprBtn{
+    background-color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    float: left;
+    width: 70px;
+    height: 30px;
+}
+.editDprBtn:hover{
+    background-color: black;
+    color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    float: left;
+    width: 70px;
+    height: 30px;
 }
