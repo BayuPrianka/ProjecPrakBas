@@ -127,66 +127,73 @@ document.addEventListener("DOMContentLoaded", () => {
   function BuatDepartement(namaDpr, docId){
   
   
-      var contentLink = document.createElement('a');
-      contentLink.href = "/departemen";
-      contentLink.classList.add('aContent');
-  
-    var content = document.getElementById("content");
-    var card = document.createElement('div');
-  
-    var isiCard = document.createElement('div');
-   
-    var NamaDepartementIsiCard = document.createElement('h3');
-  
-    var linkisicard = document.createElement('a');
-  linkisicard.href = 'departemen.html';
-  
-    var isiCardAtas = document.createElement('div');
-  
-    isiCardAtas.classList.add('isi-content1-atas');
-    var isiCardTengah = document.createElement('div');
-  
-  
-  
-  
-    isiCardTengah.classList.add('isi-content1-tngh');
-    var isiCardBawah = document.createElement('div');
-    isiCardBawah.classList.add('isi-content1-bwh');
-  
-    var isiCardDel = document.createElement('button');
-    isiCardDel.classList.add('deleteDprBtn');
-    isiCardDel.innerText = 'Delete';
-    isiCardDel.dataset.docId = docId;
-    isiCardDel.addEventListener('click', function() {
-        DeleteDocument(docId, card);
-    });
-  
-    var isiCardEdit = document.createElement('button');
-    isiCardEdit.classList.add('editDprBtn');
-    isiCardEdit.innerText = 'Edit';
-    isiCardEdit.dataset.docId = docId;
-    isiCardEdit.addEventListener('click', function() {
-        document.getElementById('editField').value = namaDpr;
-        document.getElementById('editDocId').value = docId;
-        ModalEdit.style.display = "block";
-    });
-  
-    isiCardAtas.append(NamaDepartementIsiCard);
-    isiCardBawah.append(isiCardDel);
-    isiCardBawah.append(isiCardEdit);
-  
-    contentLink.append(isiCardAtas, isiCardTengah);
-  
-    isiCard.append(contentLink, isiCardBawah)
-    linkisicard.append(isiCard);
-    NamaDepartementIsiCard.innerText = namaDpr;
-  
-    card.classList.add('isi-content');
-    isiCard.classList.add('isi-content1');
-  
-    card.append(isiCard);
     
-    content.append(card);
+    var contentLink = document.createElement('a');
+    contentLink.href = "/departemen";
+    contentLink.classList.add('aContent');
+  
+  var content = document.getElementById("content");
+  var card = document.createElement('div');
+  
+  var isiCard = document.createElement('div');
+  
+  var NamaDepartementIsiCard = document.createElement('h3');
+  
+  var linkisicard = document.createElement('a');
+
+  
+  var isiCardAtas = document.createElement('div');
+  
+  isiCardAtas.classList.add('isi-content1-atas');
+  var isiCardTengah = document.createElement('div');
+  
+  
+  
+  
+  isiCardTengah.classList.add('isi-content1-tngh');
+  var isiCardBawah = document.createElement('div');
+  isiCardBawah.classList.add('isi-content1-bwh');
+  
+  var isiCardDel = document.createElement('button');
+  isiCardDel.classList.add('deleteDprBtn');
+  isiCardDel.innerText = 'Delete';
+  isiCardDel.dataset.docId = docId;
+  isiCardDel.addEventListener('click', function() {
+      DeleteDocument(docId, card);
+  });
+  
+  var isiCardEdit = document.createElement('button');
+  isiCardEdit.classList.add('editDprBtn');
+  isiCardEdit.innerText = 'Edit';
+  isiCardEdit.dataset.docId = docId;
+  isiCardEdit.addEventListener('click', function() {
+      document.getElementById('editField').value = namaDpr;
+      document.getElementById('editDocId').value = docId;
+      ModalEdit.style.display = "block";
+  });
+  
+  isiCardAtas.append(NamaDepartementIsiCard);
+  isiCardBawah.append(isiCardDel);
+  isiCardBawah.append(isiCardEdit);
+  
+  contentLink.append(isiCardAtas, isiCardTengah);
+  
+  isiCard.append(contentLink, isiCardBawah)
+  linkisicard.append(isiCard);
+  NamaDepartementIsiCard.innerText = namaDpr;
+  
+  card.classList.add('isi-content');
+  isiCard.classList.add('isi-content1');
+  
+  card.append(isiCard);
+  
+  content.append(card);
+    // Simpan nama departemen ke localStorage ketika link diklik
+    contentLink.addEventListener('click', function() {
+        localStorage.setItem('selectedDepartment', namaDpr);
+    });
+  
+  
   }
   
   // references
@@ -268,4 +275,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const newValue = document.getElementById("editField").value;
     UpdateFieldsInADocument(docId, newValue);
   });
+  
+  
   
