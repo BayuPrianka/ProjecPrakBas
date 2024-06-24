@@ -3,7 +3,6 @@
         <title>HitoManager</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css" />
-        <link rel="shortcut icon" href="logo-black.png" type="image/x-icon">
     </head>
     <body>
         <div class="div-body">
@@ -17,7 +16,7 @@
                                   <div class="menu-link" >
                                     
                                     <li class="nav-link">
-                                      <a href="/index" class="nav-link-a">
+                                      <a href="index.html" class="nav-link-a">
                                         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAVBJREFUWEft2NENwjAMBNB0E9gENoFJgElgE9gENgFOiisrxLFjt1KF2k9I0sfFjSuGtLBrWJgn/SVok1K65qSPKaVXJPVoQsA8GQCYfQQVAZUYcoVQXlAtGYDwOS43ygOqYah27lFUL0jCPHIy+D6E6gFpGKqhEMoKsmLCKAuoFxNCaSAvxo1qgaIYF0oCTYXpRtVAtRMY7YAebW+rMrWZEiS1A63WrMh3MfDnRC9vhEZJxz+fOxeI2syWbrZ4ENI5ZO2JRVRLCONqaWIa6g3bUb4b8S275PVvfFxrK/hkPk6qs1odYSs4SlpznOsBoXnujFWMpPCE0jULqBZ76ZO2e3aQlLB04xWk1cqa0JoQElDroDFGnds6GKVGazwTm8Nweo8N1drFz99fyg+4KSC0BvoY1v+5tNcK/ImANiE1UQ9SxGAxDeS5YWjOCtLi+wAXZYAlbijKmgAAAABJRU5ErkJggg=="/>
                                         <span class="text-nav-text">Home</span>
                                       </a>
@@ -82,41 +81,75 @@
                 <!-- Modal untuk menambahkan data Hito -->
                 <div id="myModal" class="modal">
                   <div class="modal-content">
-                      <h2>Tambah Data Karyawan</h2>
-                      <div class="modal-form">
-                          <div class="form-floating mb-3">
-                              <input type="text" class="form-control" id="namaHitoInput" placeholder="Nama Hito">
-                              <label for="namaHitoInput">Nama Karyawan</label>
-                          </div>
-                          <div class="form-floating mb-3">
-                              <input type="text" class="form-control" id="idHitoInput" placeholder="ID Hito">
-                              <label for="idHitoInput">ID Karyawan</label>
-                          </div>
-                          <div class="form-floating mb-3">
-                              <select class="form-select" id="jenisKelaminInput" aria-label="Jenis Kelamin">
-                                  <option value="L">Laki-laki</option>
-                                  <option value="P">Perempuan</option>
-                              </select>
-                              <label for="jenisKelaminInput">Jenis Kelamin</label>
-                          </div>
-                          <div class="modal-buat">
-                              <button onclick="clickBuatHitoButton()" id="buatHitoButtonId" class="buatButton">Buat</button>
-                          </div>
+                    <h2>Tambah Data Hito</h2>
+                    <div class="modal-form">
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="namaHitoInput" placeholder="Nama Hito">
+                        <label for="namaHitoInput">Nama Hito</label>
                       </div>
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="idHitoInput" placeholder="ID Hito">
+                        <label for="idHitoInput">ID Hito</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="HPHitoInput" placeholder="Nomor HP">
+                        <label for="HPHitoInput">Nomor HP</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="jenisKelaminInput" placeholder="Jenis Kelamin">
+                        <label for="jenisKelaminInput">Jenis Kelamin</label>
+                      </div>
+                      <div class="modal-buat">
+                        <button id="buatButtonId" class="buatButton">Buat</button>
+                      </div>
+                    </div>
                   </div>
-              </div>
+                </div>
+                
+                <div id="myModal1" class="modal1">
+                  <div class="modal-content1">
+                    <span class="close">&times;</span>
+                    <p>Edit your content here...</p>
+                    <form id="editForm">
+                      <label for="editField">Edit Field:</label>
+                      <input type="text" id="editField" name="editField"><br><br>
+                      <input type="hidden" id="editDocId">
+                      <input type="submit" value="Submit">
+                    </form>
+                  </div>
+                </div>
+
+    <!-- Edit Form Modal -->
+    <div id="myModal1" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <form id="editForm">
+              <label for="editField">Edit Name:</label>
+              <input type="text" id="editField" name="editField" required><br><br>
+              <input type="hidden" id="editDocId" name="editDocId">
+              <button type="submit">Save Changes</button>
+          </form>
+      </div>
+  </div>
+          
+            
+
               <!--Modal Tambah Hito end -->
 
 
 
             <!-- Content -->
-                <div id="barAtas" class="barAtas ori">
-                    <h1 id="departmentName"></h1>
-                </div>
-                  <div href="index.html" id="content" class="content ori">   
-                    
+          
+              
+              <div id="barAtas" class="barAtas ori">
+                <h1 id="departmentName"></h1>
+              </div>
+              <div href="index.html" id="content" class="content ori">
+              
+              </div>
 
-                  </div>
+             
+
                    
            
             <!-- Content End -->
@@ -131,9 +164,11 @@
         // Ambil nama departemen dari localStorage
         const departmentName = localStorage.getItem('selectedDepartment');
 
+
         // Tampilkan nama departemen
         if (departmentName) {
             document.getElementById('departmentName').innerText = departmentName;
+
         } else {
             document.getElementById('departmentName').innerText = 'Nama departemen tidak ditemukan';
         }

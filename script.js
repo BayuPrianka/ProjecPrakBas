@@ -117,9 +117,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Get the <span> element that closes the modal
   var spanEdit = document.getElementsByClassName("close")[1]; // Mengambil elemen close button untuk modal edit
   
-  // When the user clicks on <span> (x), close the modal
-  spanEdit.onclick = function() {
+    // When the user clicks on <span> (x), close the modal
+    spanEdit.onclick = function() {
       ModalEdit.style.display = "none";
+  }
+  
+  spanEdit.onclick = function() {
+    ModalEdit.style.display = "none";
   }
   
   
@@ -129,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     
     var contentLink = document.createElement('a');
-    contentLink.href = "/departemen";
+    contentLink.href = "departemen.html";
     contentLink.classList.add('aContent');
   
   var content = document.getElementById("content");
@@ -140,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
   var NamaDepartementIsiCard = document.createElement('h3');
   
   var linkisicard = document.createElement('a');
-
+  linkisicard.href = 'departemen.html';
   
   var isiCardAtas = document.createElement('div');
   
@@ -191,6 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Simpan nama departemen ke localStorage ketika link diklik
     contentLink.addEventListener('click', function() {
         localStorage.setItem('selectedDepartment', namaDpr);
+        localStorage.setItem('selectedDepartmentID', namaDpr);
     });
   
   
