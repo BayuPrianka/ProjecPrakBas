@@ -400,7 +400,7 @@ body .barAtas.ori {
     margin-left: 120px;
     margin-top: 90px;
     background-color: black;
-    width: 1150px;
+    width: 100vh;
     height: 300px;
     color: white;
     display: flex;
@@ -412,7 +412,7 @@ body .barAtas.ori {
 
 .barAtas {
     background-color: black;
-    width: 1000px;
+    width: 100vh;
     height: 300px;
     margin-left: 300px;
     margin-top: 90px;
