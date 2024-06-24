@@ -1,0 +1,13 @@
+{
+    "rewrites": [
+      {
+        "source": "/departemen",
+        "destination": "/departemen.html"
+      },
+      {
+        "source": "/another-page",
+        "destination": "/another-page.html"
+      }
+    ]
+  }
+  
