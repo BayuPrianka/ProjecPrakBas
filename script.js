@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     
     var contentLink = document.createElement('a');
-    contentLink.href = "departemen.html";
+    contentLink.href = "/departemen";
     contentLink.classList.add('aContent');
   
   var content = document.getElementById("content");
