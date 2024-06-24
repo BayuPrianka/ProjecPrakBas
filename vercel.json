@@ -5,8 +5,8 @@
         "destination": "/departemen.html"
       },
       {
-        "source": "/another-page",
-        "destination": "/another-page.html"
+        "source": "/index",
+        "destination": "/index.html"
       }
     ]
   }
