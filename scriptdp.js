@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const body = document.querySelector("body");
   const sidebar = body.querySelector(".sidebar");
   const contenIfSidebarOpen = body.querySelector(".content");
+  const barAtasIfSidebarOpen = body.querySelector(".barAtas");
   const toggle = body.querySelector(".menu-utama");
   
   // Variabel untuk melacak apakah tombol menu utama telah ditekan
@@ -46,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Toggle kelas 'close' pada sidebar
     sidebar.classList.toggle("close");
     contenIfSidebarOpen.classList.toggle("ori");
+    barAtasIfSidebarOpen.classList.toggle("ori");
     // Update status menu utama
     menuUtamaToggled = !menuUtamaToggled;
   
@@ -64,17 +66,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // Mendapatkan elemen sidebar
   let sidebarauto = document.getElementById('mySidebar');
   let contenauto = document.getElementById('content');
-  
+  let baratasauto = document.getElementById('barAtas');
   // Fungsi untuk membuka sidebar
   function openSidebar() {
     sidebarauto.classList.remove('close');
     contenauto.classList.remove('ori');
+    baratasauto.classList.remove('ori');
   }
   
   // Fungsi untuk menutup sidebar
   function closeSidebar() {
     contenauto.classList.add('ori');
     sidebarauto.classList.add('close');
+    baratasauto.classList.add('ori');
   }
   
   // Menambahkan event listener untuk mouseover
@@ -125,30 +129,14 @@ document.addEventListener("DOMContentLoaded", () => {
   
   
   function BuatDepartement(namaDpr, docId){
-  
-  
-      var contentLink = document.createElement('a');
-      contentLink.href = "departemen.html";
-      contentLink.classList.add('aContent');
-  
     var content = document.getElementById("content");
     var card = document.createElement('div');
-  
     var isiCard = document.createElement('div');
-   
     var NamaDepartementIsiCard = document.createElement('h3');
   
-    var linkisicard = document.createElement('a');
-  linkisicard.href = 'departemen.html';
-  
     var isiCardAtas = document.createElement('div');
-  
     isiCardAtas.classList.add('isi-content1-atas');
     var isiCardTengah = document.createElement('div');
-  
-  
-  
-  
     isiCardTengah.classList.add('isi-content1-tngh');
     var isiCardBawah = document.createElement('div');
     isiCardBawah.classList.add('isi-content1-bwh');
@@ -174,18 +162,14 @@ document.addEventListener("DOMContentLoaded", () => {
     isiCardAtas.append(NamaDepartementIsiCard);
     isiCardBawah.append(isiCardDel);
     isiCardBawah.append(isiCardEdit);
+    isiCard.append(isiCardAtas, isiCardTengah, isiCardBawah);
   
-    contentLink.append(isiCardAtas, isiCardTengah);
-  
-    isiCard.append(contentLink, isiCardBawah)
-    linkisicard.append(isiCard);
     NamaDepartementIsiCard.innerText = namaDpr;
   
     card.classList.add('isi-content');
     isiCard.classList.add('isi-content1');
   
     card.append(isiCard);
-    
     content.append(card);
   }
   
@@ -201,8 +185,8 @@ document.addEventListener("DOMContentLoaded", () => {
       // BuatDepartement();
       const docRef = await setDoc(
           ref,{
-              NameOfDp: NameBox.value,
-              IdDp: RollBox.value,
+              NameOfHito: NameBox.value,
+              RollNO: RollBox.value,
           }
       )
       .then(()=>{
@@ -221,7 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function UpdateFieldsInADocument(docId, newValue) {
     var ref = doc(db, "HitoManager", docId);
     await updateDoc(ref, {
-        NameOfDp: newValue,
+        NameOfHito: newValue,
     })
     .then(() => {
         alert("Success");
@@ -255,9 +239,9 @@ document.addEventListener("DOMContentLoaded", () => {
   
   insBtn.addEventListener("click", AddDocument_CustomID);
   
-  const querySnapshot = await getDocs(collection(db, "HitoManager"));
+  const querySnapshot = await getDocs(collection(db, "HitoHito"));
   querySnapshot.forEach((doc) => {
-    let namaDpr = doc.data().NameOfDp;
+    let namaDpr = doc.data().NameOfHito;
     BuatDepartement(namaDpr, doc.id);
   });
   

@@ -279,7 +279,7 @@ body{
 body .content.ori {
     display: flex;
     flex-wrap: wrap;
-
+    text-decoration: none;
     width: 169vh;
     height: 608px;
     margin-left: 70px;
@@ -288,7 +288,7 @@ body .content.ori {
 }
 
 .content {
-
+    text-decoration: none;
     display: flex;
     flex-wrap: wrap;
     width: 142vh;
@@ -300,6 +300,7 @@ body .content.ori {
 
 
 .isi-content {
+    text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -310,6 +311,7 @@ body .content.ori {
 }
 
 .isi-content1 {
+    text-decoration: none;
     border-radius: 10px;
     width: 250; /* Sesuaikan dengan lebar elemen parent .isi-content */
     height: 300px;
@@ -320,7 +322,7 @@ body .content.ori {
     justify-content: center;
 }
 .isi-content1-atas {
- 
+
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     width: 250px; /* Sesuaikan dengan lebar elemen parent .isi-content */
@@ -335,7 +337,7 @@ body .content.ori {
     justify-content: center;
 }
 .isi-content1-tngh {
-  
+
     width: 250px; /* Sesuaikan dengan lebar elemen parent .isi-content */
     height: 149px;
     
@@ -354,6 +356,10 @@ body .content.ori {
 
     box-sizing: border-box; /* Pastikan padding dan border dimasukkan dalam ukuran total */
 
+}
+.aContent{
+    text-decoration: none;
+    color: black;
 }
 .deleteDprBtn{
     background-color: white;
@@ -388,4 +394,34 @@ body .content.ori {
     float: left;
     width: 70px;
     height: 30px;
+}
+
+
+
+/* departemen */
+body .barAtas.ori {
+    margin-left: 120px;
+    margin-top: 90px;
+    background-color: black;
+    width: 1150px;
+    height: 300px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100;
+
+}
+
+.barAtas {
+    background-color: black;
+    width: 1000px;
+    height: 300px;
+    margin-left: 300px;
+    margin-top: 90px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100;
 }
