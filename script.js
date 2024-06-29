@@ -129,12 +129,37 @@ document.addEventListener("DOMContentLoaded", () => {
   
   
   function BuatDepartement(namaDpr, docId){
+
+    var contentLinkdp = document.createElement('a');
+    contentLinkdp.href = "departemen.html";
+    contentLinkdp.classList.add('aContent');
   
+    contentLinkdp.addEventListener('click', function() {
+      localStorage.setItem('selectedDepartment', namaDpr);
+      localStorage.setItem('selectedDepartmentID', namaDpr);
+  });
+
+  var dpsidebar = document.getElementById("DpSideBar");
   
+  var cardDp = document.createElement('div')
+  
+  var isicardDp = document.createElement('b');
+  cardDp.classList.add('listdp');
+  isicardDp.innerText = namaDpr;
+  cardDp.append(isicardDp);
+  contentLinkdp.append(cardDp);
+  dpsidebar.append(contentLinkdp);
+
+
+
+
+
+
+  var contentLink = document.createElement('a');
+  contentLink.href = "departemen.html";
+  contentLink.classList.add('aContent');
     
-    var contentLink = document.createElement('a');
-    contentLink.href = "/departemen";
-    contentLink.classList.add('aContent');
+
   
   var content = document.getElementById("content");
   var card = document.createElement('div');

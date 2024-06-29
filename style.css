@@ -215,6 +215,24 @@ body{
     cursor: pointer;
 }
 /* SIde Bar */
+.DpSideBar{
+    width: 220px;
+    height: 500px;
+   
+   
+}
+.listdp{
+    width: 220px;
+    height: 50px;
+  border: solid 1px black;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+   margin-bottom: 10px;
+
+}
+
 .sidebar{
     position: fixed;
 
@@ -228,6 +246,9 @@ body{
 }
 .sidebar.close{
     width: 70px;
+}
+.sidebar.close .DpSideBar{
+    opacity: 0;
 }
 .sidebar.close .text-nav-text{
     opacity: 0;

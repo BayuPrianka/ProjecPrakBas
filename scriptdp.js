@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.style.display = "block";
     }
   
-    // Close the modal when clicking outside of the modal content
+    
     window.onclick = (event) => {
         if (event.target == modal) {
             modal.style.display = "none";
@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const body = document.querySelector("body");
   const sidebar = body.querySelector(".sidebar");
   const contenIfSidebarOpen = body.querySelector(".content");
+  const barAtasIfSidebarOpen = body.querySelector(".barAtas");
   const toggle = body.querySelector(".menu-utama");
   
   // Variabel untuk melacak apakah tombol menu utama telah ditekan
@@ -46,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Toggle kelas 'close' pada sidebar
     sidebar.classList.toggle("close");
     contenIfSidebarOpen.classList.toggle("ori");
+    barAtasIfSidebarOpen.classList.toggle("ori");
     // Update status menu utama
     menuUtamaToggled = !menuUtamaToggled;
   
@@ -129,7 +131,35 @@ var spanEdit = document.getElementsByClassName("close")[1]; // Mengambil elemen 
 
 const departemenId = localStorage.getItem('selectedDepartmentID') || "defaultDeptId";
 
+function BuatDepartementdp(namaDpr, docId){
+
+    var contentLinkdp = document.createElement('a');
+    contentLinkdp.href = "departemen.html";
+    contentLinkdp.classList.add('aContent');
+  
+    contentLinkdp.addEventListener('click', function() {
+      localStorage.setItem('selectedDepartment', namaDpr);
+      localStorage.setItem('selectedDepartmentID', namaDpr);
+  });
+
+  var dpsidebar = document.getElementById("DpSideBar");
+  
+  var cardDp = document.createElement('div')
+  
+  var isicardDp = document.createElement('b');
+  cardDp.classList.add('listdp');
+  isicardDp.innerText = namaDpr;
+  cardDp.append(isicardDp);
+  contentLinkdp.append(cardDp);
+  dpsidebar.append(contentLinkdp);
+
+
+}
 function BuatDepartement(namaDpr, docId, NameOfDp) {
+
+
+
+
     var content = document.getElementById("content");
     var card = document.createElement('div');
     var isiCard = document.createElement('div');
@@ -273,4 +303,10 @@ async function loadHitoByDepartmentId(departemenId) {
 // Load data when the page loads
 document.addEventListener('DOMContentLoaded', function() {
     loadHitoByDepartmentId(departemenId);
+});
+
+const querySnapshot = await getDocs(collection(db, "HitoManager"));
+querySnapshot.forEach((doc) => {
+  let namaDpr = doc.data().NameOfDp;
+  BuatDepartementdp(namaDpr, doc.id);
 });
