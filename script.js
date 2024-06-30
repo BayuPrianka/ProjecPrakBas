@@ -196,7 +196,8 @@ document.addEventListener("DOMContentLoaded", () => {
   isiCardEdit.innerText = 'Edit';
   isiCardEdit.dataset.docId = docId;
   isiCardEdit.addEventListener('click', function() {
-      ModalEdit.style.display = "block";
+    document.getElementById('editDocId').value = docId;  
+    ModalEdit.style.display = "block";
   });
   
   isiCardAtas.append(NamaDepartementIsiCard);
@@ -268,7 +269,6 @@ document.addEventListener("DOMContentLoaded", () => {
         alert("Failed, error: " + error);
     });
   }
-  
   // Delete a document
   async function DeleteDocument(docId, cardElement) {
     var ref = doc(db, "HitoManager", docId);
@@ -296,13 +296,12 @@ document.addEventListener("DOMContentLoaded", () => {
     BuatDepartement(namaDpr, doc.id);
   });
   
-  // Handle edit modal form submission
-  document.getElementById("editForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const docId = document.getElementById("editDocId").value;
-    const newValue = document.getElementById("editField").value;
-    UpdateFieldsInADocument(docId, newValue);
-  });
-  
-  
+// Handle edit modal form submission
+document.getElementById("editForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const docId = document.getElementById("editDocId").value;
+  const newValue = document.getElementById("editField").value;
+  UpdateFieldsInADocument(docId, newValue);
+});
+
   
