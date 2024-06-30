@@ -93,6 +93,10 @@
                         <label for="idHitoInput">ID Hito</label>
                       </div>
                       <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="JBHitoInput" placeholder="jabatan Hito">
+                        <label for="JBHitoInput">Jabatan Hito</label>
+                      </div>
+                      <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="HPHitoInput" placeholder="Nomor HP">
                         <label for="HPHitoInput">Nomor HP</label>
                       </div>
@@ -112,26 +116,21 @@
                     <span class="close">&times;</span>
                     <p>Edit your content here...</p>
                     <form id="editForm">
-                      <label for="editField">Edit Field:</label>
-                      <input type="text" id="editField" name="editField"><br><br>
-                      <input type="hidden" id="editDocId">
-                      <input type="submit" value="Submit">
+                      <label for="editField">Edit Name:</label>
+                      <input type="text" id="editFieldnm" name="editFieldnm" required><br><br>
+                      <label for="editField">Edit HP:</label>
+                      <input type="text" id="editFieldhp" name="editFieldhp" required><br><br>
+                      <label for="editField">Edit Jenis Kelamin:</label>
+                      <input type="text" id="editFieldjk" name="editFieldjk" required><br><br>
+                      <label for="editField">Edit Jabatan:</label>
+                      <input type="text" id="editFieldjb" name="editFieldjb" required><br><br>
+                      <label for="editField">Edit Id:</label>
+                      <input type="text" id="editFieldid" name="editFieldid" required><br><br>
+                      <input type="hidden" id="editDocId" name="editDocId">
+                      <button type="submit">Save Changes</button>
                     </form>
                   </div>
                 </div>
-
-    <!-- Edit Form Modal -->
-    <div id="myModal1" class="modal">
-      <div class="modal-content">
-          <span class="close">&times;</span>
-          <form id="editForm">
-              <label for="editField">Edit Name:</label>
-              <input type="text" id="editField" name="editField" required><br><br>
-              <input type="hidden" id="editDocId" name="editDocId">
-              <button type="submit">Save Changes</button>
-          </form>
-      </div>
-  </div>
           
             
 
@@ -145,7 +144,7 @@
               <div id="barAtas" class="barAtas ori">
                 <h1 id="departmentName"></h1>
               </div>
-              <div href="index.html" id="content" class="content ori">
+              <div href="/index" id="content" class="content ori">
               
               </div>
 

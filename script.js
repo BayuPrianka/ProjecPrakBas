@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function BuatDepartement(namaDpr, docId){
 
     var contentLinkdp = document.createElement('a');
-    contentLinkdp.href = "departemen.html";
+    contentLinkdp.href = "/departemen";
     contentLinkdp.classList.add('aContent');
   
     contentLinkdp.addEventListener('click', function() {
@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   var contentLink = document.createElement('a');
-  contentLink.href = "departemen.html";
+  contentLink.href = "/departemen";
   contentLink.classList.add('aContent');
     
 
@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
   var NamaDepartementIsiCard = document.createElement('h3');
   
   var linkisicard = document.createElement('a');
-  linkisicard.href = 'departemen.html';
+  linkisicard.href = '/departemen';
   
   var isiCardAtas = document.createElement('div');
   
@@ -196,8 +196,6 @@ document.addEventListener("DOMContentLoaded", () => {
   isiCardEdit.innerText = 'Edit';
   isiCardEdit.dataset.docId = docId;
   isiCardEdit.addEventListener('click', function() {
-      document.getElementById('editField').value = namaDpr;
-      document.getElementById('editDocId').value = docId;
       ModalEdit.style.display = "block";
   });
   

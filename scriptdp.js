@@ -134,7 +134,7 @@ const departemenId = localStorage.getItem('selectedDepartmentID') || "defaultDep
 function BuatDepartementdp(namaDpr, docId){
 
     var contentLinkdp = document.createElement('a');
-    contentLinkdp.href = "departemen.html";
+    contentLinkdp.href = "/departemen";
     contentLinkdp.classList.add('aContent');
   
     contentLinkdp.addEventListener('click', function() {
@@ -155,10 +155,48 @@ function BuatDepartementdp(namaDpr, docId){
 
 
 }
-function BuatDepartement(namaDpr, docId, NameOfDp) {
 
 
+// references
+let NameBox = document.getElementById("namaHitoInput");
+let IDBox = document.getElementById("idHitoInput");
+let JBBox = document.getElementById("JBHitoInput");
+let HPBox = document.getElementById("HPHitoInput");
+let JKBox = document.getElementById("jenisKelaminInput");
 
+let insBtn = document.getElementById("buatButtonId");
+
+function BuatDepartement(namaKaryawan, docId, jbKaryawan, hpkaryawan, jkkaryawan, idkaryawan) {
+
+    var ulcontent = document.createElement('ul');
+    ulcontent.classList.add('ul-content');
+
+    var liNamaContent = document.createElement('li');
+    var textNamaContent = document.createElement('b');
+    textNamaContent.innerText = `Nama : ${namaKaryawan}`;
+    liNamaContent.append(textNamaContent);
+
+    var liJKContent = document.createElement('li');
+    var textJKContent = document.createElement('b');
+    textJKContent.innerText = `Jenis Kelamin : ${jkkaryawan}`;
+    liJKContent.append(textJKContent);
+
+    var liHPContent = document.createElement('li');
+    var textHPContent = document.createElement('b');
+    textHPContent.innerText = `No HP : ${hpkaryawan}`;
+    liHPContent.append(textHPContent);
+
+    var liIDContent = document.createElement('li');
+    var textIDContent = document.createElement('b');
+    textIDContent.innerText = `ID : ${idkaryawan}`;
+    liIDContent.append(textIDContent);
+
+    var liJBContent = document.createElement('li');
+    var textJBContent = document.createElement('b');
+    textJBContent.innerText = `ID : ${jbKaryawan}`;
+    liJBContent.append(textJBContent);
+
+    ulcontent.append(liNamaContent, liIDContent, liHPContent, liJKContent);
 
     var content = document.getElementById("content");
     var card = document.createElement('div');
@@ -185,7 +223,6 @@ function BuatDepartement(namaDpr, docId, NameOfDp) {
     isiCardEdit.innerText = 'Edit';
     isiCardEdit.dataset.docId = docId;
     isiCardEdit.addEventListener('click', function() {
-        document.getElementById('editField').value = namaDpr;
         document.getElementById('editDocId').value = docId;
         ModalEdit.style.display = "block";
     });
@@ -193,9 +230,10 @@ function BuatDepartement(namaDpr, docId, NameOfDp) {
     isiCardAtas.append(NamaDepartementIsiCard);
     isiCardBawah.append(isiCardDel);
     isiCardBawah.append(isiCardEdit);
+    isiCardTengah.append(ulcontent);
     isiCard.append(isiCardAtas, isiCardTengah, isiCardBawah);
   
-    NamaDepartementIsiCard.innerText = namaDpr;
+    NamaDepartementIsiCard.innerText = jbKaryawan; // Menggunakan JBKaryawan
   
     card.classList.add('isi-content');
     isiCard.classList.add('isi-content1');
@@ -209,13 +247,6 @@ function BuatDepartement(namaDpr, docId, NameOfDp) {
     });
 }
 
-// references
-let NameBox = document.getElementById("namaHitoInput");
-let IDBox = document.getElementById("idHitoInput");
-let HPBox = document.getElementById("HPHitoInput");
-let JKBox = document.getElementById("jenisKelaminInput");
-
-let insBtn = document.getElementById("buatButtonId");
 
 // Add document with custom ID
 async function AddDocument_CustomID(){
@@ -224,6 +255,7 @@ async function AddDocument_CustomID(){
         ref,{
             NameKaryawan: NameBox.value,
             IdKaryawan: IDBox.value,
+            JBKaryawan: JBBox.value,
             HPKaryawan: HPBox.value,
             JenisKelamin: JKBox.value,
             NameOfDp: departemenId,
@@ -241,15 +273,19 @@ async function AddDocument_CustomID(){
 }
 
 // Update fields in a document in the "Hito" collection
-async function UpdateFieldsInADocument_Hito(docId, newValue) {
+async function UpdateFieldsInADocument_Hito(docId, newValueNM, newValueID, newValueJB, newValueHP, newValueJK) {
     var ref = doc(db, "Hito", docId);
     await updateDoc(ref, {
-        NameKaryawan: newValue,
+        NameKaryawan: newValueNM,
+        IdKaryawan: newValueID,
+        JBKaryawan: newValueJB,
+        HPKaryawan: newValueHP,
+        JenisKelamin: newValueJK,
     })
     .then(() => {
         alert("Success");
         const cardElement = document.querySelector(`[data-doc-id="${docId}"]`).closest('.isi-content');
-        cardElement.querySelector('h3').innerText = newValue;
+        cardElement.querySelector('h3').innerText =newValueNM ;
         ModalEdit.style.display = "none"; // Close the modal
     })
     .catch((error) => {
@@ -263,8 +299,12 @@ if (editForm) {
     editForm.addEventListener("submit", function(e) {
         e.preventDefault();
         const docId = document.getElementById("editDocId").value;
-        const newValue = document.getElementById("editField").value;
-        UpdateFieldsInADocument_Hito(docId, newValue);
+        const newValueNM = document.getElementById("editFieldnm").value;
+        const newValueJK = document.getElementById("editFieldjk").value;
+        const newValueHP = document.getElementById("editFieldhp").value;
+        const newValueID = document.getElementById("editFieldid").value;
+        const newValueJB = document.getElementById("editFieldjb").value;
+        UpdateFieldsInADocument_Hito(docId, newValueNM, newValueID, newValueJB, newValueHP, newValueJK);
     });
 }
 
@@ -296,7 +336,11 @@ async function loadHitoByDepartmentId(departemenId) {
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
         let namaKaryawan = doc.data().NameKaryawan;
-        BuatDepartement(namaKaryawan, doc.id);
+        let jbKaryawan = doc.data().JBKaryawan;
+        let hpkaryawan = doc.data().HPKaryawan;
+        let jkkaryawan = doc.data().JenisKelamin;
+        let idkaryawan = doc.data().IdKaryawan;
+        BuatDepartement(namaKaryawan, doc.id, jbKaryawan, hpkaryawan, jkkaryawan, idkaryawan); 
     });
 }
 
@@ -310,3 +354,4 @@ querySnapshot.forEach((doc) => {
   let namaDpr = doc.data().NameOfDp;
   BuatDepartementdp(namaDpr, doc.id);
 });
+

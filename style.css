@@ -248,6 +248,7 @@ body{
     width: 70px;
 }
 .sidebar.close .DpSideBar{
+    width: 0px;
     opacity: 0;
 }
 .sidebar.close .text-nav-text{
@@ -364,6 +365,12 @@ body .content.ori {
     box-sizing: border-box; /* Pastikan padding dan border dimasukkan dalam ukuran total */
     display: flex;
     justify-content: center;
+}
+.ul-content{
+    margin-right: 50px;
+    font-size: 13px;
+    text-decoration: none;
+    list-style: none;
 }
 .isi-content1-bwh {
     border-bottom-left-radius: 10px;
