@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   
   
-  function BuatDepartement(namaDpr, docId){
+  function BuatDepartement(namaDpr, docId, IDDpr){
 
     var contentLinkdp = document.createElement('a');
     contentLinkdp.href = "/departemen";
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     contentLinkdp.addEventListener('click', function() {
       localStorage.setItem('selectedDepartment', namaDpr);
-      localStorage.setItem('selectedDepartmentID', namaDpr);
+      localStorage.setItem('selectedDepartmentID', IDDpr);
   });
 
   var dpsidebar = document.getElementById("DpSideBar");
@@ -219,7 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Simpan nama departemen ke localStorage ketika link diklik
     contentLink.addEventListener('click', function() {
         localStorage.setItem('selectedDepartment', namaDpr);
-        localStorage.setItem('selectedDepartmentID', namaDpr);
+        localStorage.setItem('selectedDepartmentID', IDDpr);
     });
   
   
@@ -293,7 +293,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const querySnapshot = await getDocs(collection(db, "HitoManager"));
   querySnapshot.forEach((doc) => {
     let namaDpr = doc.data().NameOfDp;
-    BuatDepartement(namaDpr, doc.id);
+    let IDDpr = doc.data().IdDp;
+    BuatDepartement(namaDpr, doc.id, IDDpr);
   });
   
 // Handle edit modal form submission
