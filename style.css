@@ -221,6 +221,9 @@ body{
    
    
 }
+.DpSideBar.close{
+    display: none;
+}
 .listdp{
     width: 220px;
     height: 50px;
@@ -249,12 +252,15 @@ body{
 }
 .sidebar.close .DpSideBar{
     width: 0px;
-    opacity: 0;
+    display: none;
 }
 .sidebar.close .text-nav-text{
-    opacity: 0;
+    display: none;
 }
 .sidebar.close .nav-link{
+    width: 50px;
+}
+.sidebar.close .nav-linkDp{
     width: 50px;
 }
 .nav-link{
@@ -266,7 +272,22 @@ body{
     width: 200px;
    border-radius: 10px;
 }
+.nav-linkDp{
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 200px;
+   border-radius: 10px;
+}
 .nav-link:hover{
+    background-color: #F1F1F1;
+}
+.nav-linkDp:hover{
+    background-color: #F1F1F1;
+}
+.listdp:hover{
     background-color: #F1F1F1;
 }
 .nav-link-a{

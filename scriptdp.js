@@ -39,9 +39,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const contenIfSidebarOpen = body.querySelector(".content");
   const barAtasIfSidebarOpen = body.querySelector(".barAtas");
   const toggle = body.querySelector(".menu-utama");
+
+  const toggle1 = body.querySelector(".nav-linkDp");
+  const sidebardp = body.querySelector(".DpSideBar");
   
-  // Variabel untuk melacak apakah tombol menu utama telah ditekan
+  
   let menuUtamaToggled = false;
+
+  toggle1.addEventListener("click",()=>{
+    sidebardp.classList.toggle("close");
+  })
+  
   
   toggle.addEventListener("click", () => {
     // Toggle kelas 'close' pada sidebar
