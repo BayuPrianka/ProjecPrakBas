@@ -123,11 +123,12 @@ const db = getFirestore(app);
 var ModalEdit = document.getElementById("myModal1");
 
 // Get the <span> element that closes the modal
-var spanEdit = document.getElementsByClassName("close")[1]; // Mengambil elemen close button untuk modal edit
+var spanEdit = document.getElementsByClassName("closeModal")[0]; // Mengambil elemen close button untuk modal edit
 
 // When the user clicks on <span> (x), close the modal
 spanEdit.onclick = function() {
   ModalEdit.style.display = "none";
+  console.log("Modal closed"); // Debugging: cek apakah onclick bekerja
 }
 
 function BuatDepartement(namaDpr, docId){

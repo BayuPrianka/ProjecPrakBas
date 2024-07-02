@@ -121,21 +121,26 @@ const firebaseConfig = {
     measurementId: "G-W6NNH910C1"
 };
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
-// Initialize Cloud Firestore and get a reference to the service
+
 const db = getFirestore(app);
 
-// Get the modal for editing
+
+
 var ModalEdit = document.getElementById("myModal1");
 
-// Get the <span> element that closes the modal
-var spanEdit = document.getElementsByClassName("close")[1]; // Mengambil elemen close button untuk modal edit
 
-  // When the user clicks on <span> (x), close the modal
-  spanEdit.onclick = function() {
-    ModalEdit.style.display = "none";
+var spanEdit = document.getElementsByClassName("closeModal")[0]; 
+
+
+spanEdit.onclick = function() {
+  ModalEdit.style.display = "none";
+  console.log("Modal closed");
 }
+
+
+
 
 const departemenId = localStorage.getItem('selectedDepartmentID') || "defaultDeptId";
 
@@ -251,7 +256,7 @@ function BuatDepartement(namaKaryawan, docId, jbKaryawan, hpkaryawan, jkkaryawan
   
     // Tambahkan event listener untuk menyimpan IdDp ke localStorage saat card diklik
     card.addEventListener('click', function() {
-      localStorage.setItem('selectedDepartmentID', NameOfDp);
+      localStorage.setItem('selectedDepartmentID', docId);
     });
 }
 
